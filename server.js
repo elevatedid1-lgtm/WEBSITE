@@ -60,12 +60,36 @@ const CSP = [
   "object-src 'none'",
 ].join("; ");
 
+// The onboarding page embeds a GoHighLevel form, which needs its hosts allowed
+// for the iframe and for the script that sizes the iframe to its content.
+// Scoped to that one page so every other page keeps the stricter policy above.
+const GHL = "https://api.leadconnectorhq.com https://link.msgsndr.com";
+
+const ONBOARDING_CSP = [
+  "default-src 'self'",
+  "img-src 'self' data:",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "script-src 'self' 'unsafe-inline' " + GHL,
+  "connect-src 'self' https://formspree.io " + GHL,
+  "frame-src " + GHL,
+  "form-action 'self' https://formspree.io",
+  "frame-ancestors 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+].join("; ");
+
+function isOnboarding(urlPath) {
+  return urlPath === "/onboarding" || urlPath === "/onboarding.html";
+}
+
 function securityHeaders(req, res) {
   res.setHeader("X-Content-Type-Options", "nosniff");
   res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
   res.setHeader("X-Frame-Options", "SAMEORIGIN");
   res.setHeader("Permissions-Policy", "geolocation=(), microphone=(), camera=(), payment=()");
-  res.setHeader("Content-Security-Policy", CSP);
+  var path = (req.url || "/").split("?")[0].split("#")[0];
+  res.setHeader("Content-Security-Policy", isOnboarding(path) ? ONBOARDING_CSP : CSP);
   // Only once TLS is actually terminating in front of us, which Railway does.
   if ((req.headers["x-forwarded-proto"] || "").split(",")[0].trim() === "https") {
     res.setHeader("Strict-Transport-Security", "max-age=15552000; includeSubDomains");

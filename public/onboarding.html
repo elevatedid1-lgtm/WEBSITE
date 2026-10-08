@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add("js");</script>
+<title>Client Onboarding | Elevated Identities</title>
+<meta name="description" content="Client onboarding form for Elevated Identities. This page is provided directly to clients and is not listed on the website.">
+
+<!-- Unlisted page: shared by link only. Deliberately has no canonical tag,
+     no sitemap entry, and no link from the navigation, footer or any menu. -->
+<meta name="robots" content="noindex, nofollow">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elevated Identities">
+<meta property="og:title" content="Client Onboarding | Elevated Identities">
+<meta property="og:description" content="Client onboarding form for Elevated Identities. This page is provided directly to clients and is not listed on the website.">
+<meta property="og:image" content="https://www.elevatedidentities.com/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Client Onboarding | Elevated Identities">
+<meta name="twitter:description" content="Client onboarding form for Elevated Identities. This page is provided directly to clients and is not listed on the website.">
+<meta name="twitter:image" content="https://www.elevatedidentities.com/assets/img/og-image.png">
+
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<style>
+  /* Page-specific, kept inline so no shared stylesheet is touched. */
+  .ei-embed {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid rgba(10, 10, 10, 0.12);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  /* The iframe carries a generous fallback height so the whole form is visible
+     even if GoHighLevel's resize script is blocked; the script overrides it
+     with the exact content height once it loads. */
+  .ei-embed iframe {
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    height: 1600px;
+    border: 0;
+  }
+  @media (max-width: 47.99em) {
+    .ei-embed iframe { height: 2100px; }
+  }
+  .ei-embed-fallback {
+    margin-top: var(--ei-sp-s, 1rem);
+    font-size: var(--ei-step--1);
+    color: var(--ei-text-muted);
+  }
+</style>
+
+<noscript>
+  <!-- Without JS the toggle cannot work, so show the nav inline and hide it. -->
+  <style>
+    .ei-nav-toggle { display: none !important; }
+    .ei-nav { position: static; display: block; border-bottom: 0; }
+    .ei-header__inner { flex-wrap: wrap; padding-bottom: 0.5rem; }
+    @media (max-width: 59.99em) { .ei-nav { width: 100%; } .ei-nav__list { padding-inline: 0; } }
+  </style>
+</noscript>
+</head>
+<body data-page="onboarding">
+
+  <a class="ei-skip-link" href="#main">Skip to main content</a>
+
+  <header class="ei-header">
+    <div class="ei-container ei-header__inner">
+      <a class="ei-wordmark" href="index.html">
+        <svg class="ei-wordmark__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" fill="#0a0a0a"/><path d="M7 7h8v4.4H11.4v3.4H15V19h-3.6v3.6H15V27H7V7z" fill="#ffffff"/><path d="M18.4 7H25v20h-6.6V7z" fill="#ffffff"/></svg>
+        <span class="ei-wordmark__text">Elevated <span class="ei-wordmark__sub">Identities</span></span>
+      </a>
+
+      <button class="ei-nav-toggle" type="button" id="ei-nav-toggle"
+              aria-expanded="false" aria-controls="ei-nav">
+        <span class="ei-nav-toggle__bars" aria-hidden="true"><span></span></span>
+        Menu
+      </button>
+
+      <nav class="ei-nav" id="ei-nav" aria-label="Main">
+        <ul class="ei-nav__list">
+            <li><a class="ei-nav__link" href="index.html">Home</a></li>
+            <li><a class="ei-nav__link" href="about.html">About</a></li>
+            <li><a class="ei-nav__link" href="services.html">Services</a></li>
+            <li><a class="ei-nav__link" href="faq.html">FAQ</a></li>
+            <li><a class="ei-nav__link" href="process.html">Our Process</a></li>
+            <li><a class="ei-nav__link" href="contact.html">Contact</a></li>
+          <li class="ei-nav__cta">
+            <a class="ei-btn ei-btn--primary" href="contact.html#enquiry">Book a Free Consultation</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="ei-header__progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="main">
+
+    <section class="ei-hero ei-hero--page">
+      <div class="ei-hero__aurora" aria-hidden="true"></div>
+      <div class="ei-hero__sheen" aria-hidden="true"></div>
+      <div class="ei-hero__spot" aria-hidden="true"></div>
+      <div class="ei-hero__scrim" aria-hidden="true"></div>
+      <div class="ei-noise" aria-hidden="true"></div>
+      <div class="ei-container">
+        <p class="ei-breadcrumb" data-rise style="--d:0"><a href="index.html">Home</a> &rsaquo; <span aria-current="page">Client Onboarding</span></p>
+        <h1 data-split>Client Onboarding</h1>
+        <p class="ei-hero__lede" data-rise style="--d:2">
+          Please complete the form below so our team can get started.
+        </p>
+      </div>
+    </section>
+
+    <section class="ei-section">
+      <div class="ei-container">
+        <div class="ei-embed">
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/jeWny0ozWTXthaUyVz3T"
+            id="inline-jeWny0ozWTXthaUyVz3T"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-activation-type="alwaysActivated"
+            data-deactivation-type="neverDeactivate"
+            data-form-name="Client Onboarding"
+            data-layout-iframe-id="inline-jeWny0ozWTXthaUyVz3T"
+            data-form-id="jeWny0ozWTXthaUyVz3T"
+            title="Client Onboarding form">
+          </iframe>
+        </div>
+        <p class="ei-embed-fallback">
+          If the form does not load,
+          <a class="ei-link" href="https://api.leadconnectorhq.com/widget/form/jeWny0ozWTXthaUyVz3T" target="_blank" rel="noopener noreferrer">open it in a new tab</a>,
+          or call <a class="ei-link" href="tel:+19049062310">(904) 906-2310</a> and we will take your details directly.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ei-footer">
+    <div class="ei-container">
+      <div class="ei-footer__grid">
+
+        <div class="ei-footer__brand">
+          <h2>Elevated Identities</h2>
+          <p>A financial services company helping individuals and businesses strengthen their
+             financial profiles and access opportunities for growth.</p>
+          <ul class="ei-social">
+            <li><a href="https://www.instagram.com/_elevatedid?igsi=OG9mc2IyNGp4azNk" target="_blank" rel="noopener noreferrer"><span class="ei-visually-hidden">Elevated Identities on Instagram</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 5.4a4.44 4.44 0 100 8.88 4.44 4.44 0 000-8.88zm0 7.32a2.88 2.88 0 110-5.76 2.88 2.88 0 010 5.76zm5.65-7.5a1.04 1.04 0 11-2.08 0 1.04 1.04 0 012.08 0z"/></svg></a></li>
+            <li><a href="https://www.facebook.com/share/19DXJfipss/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"><span class="ei-visually-hidden">Elevated Identities on Facebook</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg></a></li>
+            <li><a href="https://www.tiktok.com/@elevatedidentities" target="_blank" rel="noopener noreferrer"><span class="ei-visually-hidden">Elevated Identities on TikTok</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.6 5.82A4.28 4.28 0 0115.54 3h-3.09v12.4a2.59 2.59 0 01-2.59 2.5 2.59 2.59 0 110-5.18c.27 0 .53.04.78.12v-3.15a5.73 5.73 0 00-.78-.05 5.74 5.74 0 105.74 5.74V9.01a7.35 7.35 0 004.3 1.38V7.3a4.3 4.3 0 01-3.3-1.48z"/></svg></a></li>
+            <li><a href="https://www.linkedin.com/company/elevated-identities/" target="_blank" rel="noopener noreferrer"><span class="ei-visually-hidden">Elevated Identities on LinkedIn</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.94 5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0zM3.1 8.4h3.7V21H3.1V8.4zm5.9 0h3.55v1.72h.05c.5-.94 1.7-1.93 3.5-1.93 3.74 0 4.43 2.46 4.43 5.66V21h-3.7v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V8.4z"/></svg></a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Pages</h2>
+          <ul class="ei-footer__list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="process.html">Our Process</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Contact</h2>
+          <ul class="ei-footer__list">
+            <li><a href="tel:+19049062310">(904) 906-2310</a></li>
+            <li><a href="mailto:consultations@elevatedidentities.com">consultations@elevatedidentities.com</a></li>
+            <li>South Carolina, USA</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="ei-disclaimer">
+        Elevated Identities provides credit and funding consulting services. We do not guarantee
+        specific credit score increases, funding approvals or outcomes; results vary by individual
+        circumstances. Nothing on this website is legal, tax or investment advice. You have the
+        right to dispute inaccurate information on your credit report yourself, at no cost.
+      </p>
+
+      <div class="ei-footer__bar">
+        <p>&copy; 2026 Elevated Identities. All rights reserved.</p>
+        <ul class="ei-footer__legal">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+  <script src="assets/js/main.js" defer></script>
+
+</body>
+</html>
