@@ -206,7 +206,8 @@
       .grid, .steps { grid-template-columns: 1fr; }
       .hero-cta { flex-direction: column; align-items: stretch; }
       .hero-cta .btn { width: 100%; }
-      .wordmark { letter-spacing: .3em; font-size: 11px; }
+      .wordmark { letter-spacing: .14em; font-size: 15px; gap: 12px; }
+      .monogram { width: 44px; height: 44px; font-size: 15px; }
       .offer { padding: 36px 22px; }
       .offer .price { font-size: 52px; }
     }
@@ -233,6 +234,19 @@
     .hero-cta { margin-top: 32px; }
     .hero h1 { font-size: clamp(36px, 4.6vw, 58px); }
     header { background: #fcf9f2; }
+    /* Bigger brand name */
+    .wordmark { font-size: 19px; letter-spacing: .3em; gap: 16px; font-weight: 800; }
+    .monogram { width: 54px; height: 54px; font-size: 18px; border-width: 2px; }
+    .wordmark { white-space: nowrap; }
+    .monogram { flex: none; }
+    @media (max-width: 560px) {
+      .wordmark { font-size: 15px; letter-spacing: .14em; gap: 12px; }
+      .monogram { width: 44px; height: 44px; font-size: 15px; }
+    }
+    @media (max-width: 350px) {
+      .wordmark { font-size: 13px; letter-spacing: .1em; gap: 10px; }
+    }
+    header { padding: 24px 0; }
 
     /* Phone showing the channel */
     .hero-visual { position: relative; display: flex; justify-content: center; padding: 20px 0 40px; }
