@@ -12,7 +12,7 @@
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
   <style>
     /* Light by default. Sections with class="tint" use a warm off-white,
        sections with class="dark" are black accent bands. */
@@ -50,13 +50,17 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
       font-size: 17px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-    h1, h2, h3, .wordmark, .btn, .price {
-      font-family: "Montserrat", "Inter", system-ui, sans-serif;
+    /* Headlines and prices in an elegant serif; labels and buttons stay in the clean sans */
+    h1, h2, h3, .price {
+      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    .wordmark, .btn, .card .num, .step h3::before {
+      font-family: "DM Sans", system-ui, sans-serif;
     }
     a { color: inherit; }
     .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
@@ -121,7 +125,7 @@
       background: var(--ink); border: 1px solid var(--line); border-radius: var(--radius);
       padding: 28px 26px;
     }
-    .card .num { font-family: "Montserrat", sans-serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: .2em; }
+    .card .num { font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: .2em; }
     .card h3 { margin-top: 14px; font-size: 19px; font-weight: 700; line-height: 1.3; }
     .card p { margin-top: 10px; color: var(--muted); font-size: 15.5px; }
 
