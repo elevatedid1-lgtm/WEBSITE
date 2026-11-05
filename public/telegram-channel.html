@@ -346,6 +346,35 @@
     @keyframes sweep { 0% { left: -60%; } 30%, 100% { left: 130%; } }
     @keyframes live { 0% { box-shadow: 0 0 0 0 rgba(47,191,113,.6); } 80%, 100% { box-shadow: 0 0 0 8px rgba(47,191,113,0); } }
 
+    /* ---------- Details form ---------- */
+    dialog#join-dialog { border: 0; padding: 0; background: transparent; color: #111; max-width: none; width: 100%; max-height: none; height: 100%; overflow: auto; }
+    dialog#join-dialog[open] { display: grid; place-items: center; padding: 16px; animation: fadeIn .25s ease both; }
+    dialog#join-dialog::backdrop { background: rgba(10, 10, 10, .72); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+    #join-dialog .jd-view { position: relative; width: 100%; max-width: 460px; background: #fff; border-radius: 18px; border-top: 3px solid #a9802a; padding: 34px 30px 28px; box-shadow: 0 40px 90px -30px rgba(0,0,0,.6); animation: pop .35s cubic-bezier(.2,.9,.3,1.1) both; }
+    #join-dialog .jd-view[hidden] { display: none; }
+    #join-dialog .kicker { color: #6b6760; }
+    #join-dialog h2 { font-size: 30px; max-width: none; margin-top: 8px; color: #111; }
+    #join-dialog .jd-sub { margin-top: 8px; color: #6b6760; font-size: 15.5px; }
+    .jd-close { position: absolute; right: 18px; top: 14px; z-index: 2; width: 36px; height: 36px; border: 0; border-radius: 50%; background: transparent; color: #6b6760; font-size: 28px; line-height: 1; cursor: pointer; }
+    .jd-close:hover { background: #f1ece2; color: #111; }
+    #join-form { margin-top: 20px; display: grid; gap: 14px; }
+    #join-form label { display: grid; gap: 6px; font-size: 13px; font-weight: 700; letter-spacing: .04em; color: #3d3a35; }
+    #join-form input:not(.hp) { font: inherit; font-weight: 500; font-size: 16px; letter-spacing: 0; color: #111; background: #faf8f4; border: 1px solid #ded8cb; border-radius: 10px; padding: 13px 14px; width: 100%; transition: border-color .2s ease, box-shadow .2s ease; }
+    #join-form input:not(.hp):focus { outline: none; border-color: #a9802a; box-shadow: 0 0 0 3px rgba(201, 162, 74, .3); background: #fff; }
+    #join-form input[aria-invalid="true"] { border-color: #c0392b; }
+    #join-form small { font-weight: 500; font-size: 12.5px; letter-spacing: 0; color: #6b6760; }
+    #join-form small.err { color: #c0392b; min-height: 0; }
+    #join-form small.err:empty { display: none; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+    .jd-error { color: #c0392b; font-size: 14px; font-weight: 600; }
+    .jd-error:empty { display: none; }
+    #join-dialog .btn { width: 100%; background: #111; color: #fff; border-color: #111; margin-top: 4px; }
+    #join-dialog .btn[disabled] { opacity: .65; cursor: progress; }
+    .jd-fine { font-size: 12px; line-height: 1.55; color: #8a857b; }
+    html.dialog-open { overflow: hidden; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @media (max-width: 560px) { #join-dialog .jd-view { padding: 28px 20px 22px; } #join-dialog h2 { font-size: 26px; } }
+
     /* ---------- Animation ---------- */
     @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
     @keyframes shine { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
@@ -635,6 +664,46 @@
     </section>
   </main>
 
+  <!-- Details form: opens from every "Proceed to Join" button when the signup service is connected -->
+  <dialog id="join-dialog" aria-labelledby="jd-title">
+    <div class="jd-view jd-form-view">
+      <button class="jd-close" type="button" aria-label="Close">&times;</button>
+      <span class="kicker">Step 1 of 2</span>
+      <h2 id="jd-title">Your details</h2>
+      <p class="jd-sub">So we can send your private invite link to the right person.</p>
+      <form id="join-form" novalidate>
+        <label>Full name
+          <input name="name" type="text" autocomplete="name" required maxlength="100" placeholder="Jane Smith">
+          <small class="err" data-for="name"></small>
+        </label>
+        <label>Email
+          <input name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" placeholder="you@example.com">
+          <small class="err" data-for="email"></small>
+        </label>
+        <label>Phone number
+          <input name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="40" placeholder="(555) 123-4567">
+          <small class="err" data-for="phone"></small>
+        </label>
+        <label>Telegram username
+          <input name="telegram" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" required maxlength="40" placeholder="@yourusername">
+          <small class="hint">Find it in Telegram under Settings. Your invite only works for this username.</small>
+          <small class="err" data-for="telegram"></small>
+        </label>
+        <input class="hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="jd-error" role="alert"></p>
+        <button class="btn jd-submit" type="submit"><span>Continue</span></button>
+        <p class="jd-fine">By continuing, you agree to be contacted about your membership by email, call or text. Message and data rates may apply.</p>
+      </form>
+    </div>
+    <div class="jd-view jd-done-view" hidden>
+      <button class="jd-close" type="button" aria-label="Close">&times;</button>
+      <span class="kicker">You're on the list</span>
+      <h2>Thank you, <span class="jd-first"></span>.</h2>
+      <p class="jd-sub">Your details are saved. Payment is opening very soon, and we'll email you your private link the moment it does.</p>
+      <button class="btn jd-ok" type="button">Done</button>
+    </div>
+  </dialog>
+
   <!-- Join bar that follows visitors once they scroll past the top -->
   <div class="sticky-cta" aria-hidden="true">
     <div class="wrap sticky-inner">
@@ -666,6 +735,10 @@
     // Paste the checkout link here once the payment method is connected.
     // Until then, the buttons show a short "opening soon" message instead.
     const CHECKOUT_URL = "";
+
+    // Address of the Inner Circle signup service, for example "https://inner-circle.up.railway.app".
+    // While this is empty the buttons keep the "opening soon" message above.
+    const LEAD_API_URL = "";
 
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -718,7 +791,112 @@
       items.forEach(function (el) { io.observe(el); });
     })();
 
+    // Details form: every "Proceed to Join" button opens it once LEAD_API_URL is set.
+    var dlg = document.getElementById("join-dialog");
+    var form = document.getElementById("join-form");
+    var formView = dlg.querySelector(".jd-form-view");
+    var doneView = dlg.querySelector(".jd-done-view");
+    var submitBtn = form.querySelector(".jd-submit");
+    var submitLabel = submitBtn.querySelector("span");
+
+    function setDialogOpen(open) {
+      document.documentElement.classList.toggle("dialog-open", open);
+    }
+    function showForm() {
+      formView.hidden = false;
+      doneView.hidden = true;
+      if (!dlg.open) dlg.showModal();
+      setDialogOpen(true);
+      var first = form.querySelector("input:not(.hp)");
+      if (first) first.focus();
+    }
+    function closeDialog() { if (dlg.open) dlg.close(); }
+    dlg.addEventListener("close", function () { setDialogOpen(false); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) closeDialog(); }); // click on the dark backdrop
+    dlg.querySelectorAll(".jd-close").forEach(function (b) { b.addEventListener("click", closeDialog); });
+    dlg.querySelector(".jd-ok").addEventListener("click", closeDialog);
+
+    function showErrors(errors) {
+      form.querySelectorAll(".err").forEach(function (el) {
+        var msg = errors[el.getAttribute("data-for")] || "";
+        el.textContent = msg;
+        form.elements[el.getAttribute("data-for")].setAttribute("aria-invalid", msg ? "true" : "false");
+      });
+    }
+
+    form.addEventListener("input", function (e) {
+      var name = e.target && e.target.name;
+      var msg = name && form.querySelector('.err[data-for="' + name + '"]');
+      if (msg) { msg.textContent = ""; e.target.setAttribute("aria-invalid", "false"); }
+      form.querySelector(".jd-error").textContent = "";
+    });
+
+    function clientCheck(v) {
+      var e = {};
+      if (v.name.trim().length < 2) e.name = "Please enter your full name.";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.email.trim())) e.email = "Please enter a valid email address.";
+      var digits = v.phone.replace(/\D/g, "");
+      if (digits.length < 7 || digits.length > 15) e.phone = "Please enter a valid phone number.";
+      if (!/^@?[A-Za-z][A-Za-z0-9_]{4,31}$/.test(v.telegram.trim())) e.telegram = "Enter your Telegram username (5 to 32 letters, numbers or underscores).";
+      return e;
+    }
+
+    function pageSource() {
+      var q = new URLSearchParams(location.search), out = {};
+      ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "fbclid", "ttclid"].forEach(function (k) {
+        if (q.get(k)) out[k] = q.get(k);
+      });
+      if (document.referrer) out.referrer = document.referrer;
+      return out;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var errorBox = form.querySelector(".jd-error");
+      errorBox.textContent = "";
+      var v = {
+        name: form.elements.name.value, email: form.elements.email.value,
+        phone: form.elements.phone.value, telegram: form.elements.telegram.value
+      };
+      var errs = clientCheck(v);
+      showErrors(errs);
+      if (Object.keys(errs).length) {
+        var bad = form.querySelector('[aria-invalid="true"]');
+        if (bad) bad.focus();
+        return;
+      }
+      submitBtn.disabled = true;
+      submitLabel.textContent = "Saving...";
+      fetch(LEAD_API_URL.replace(/\/+$/, "") + "/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: v.name, email: v.email, phone: v.phone, telegram: v.telegram,
+          website: form.elements.website.value, source: pageSource()
+        })
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) { return { status: res.status, data: data }; });
+      }).then(function (r) {
+        if (r.status === 422 && r.data.errors) { showErrors(r.data.errors); return; }
+        if (!r.data.ok) { throw new Error(r.data.error || "Something went wrong."); }
+        if (r.data.checkoutUrl) { window.location.href = r.data.checkoutUrl; return; }
+        doneView.querySelector(".jd-first").textContent = v.name.trim().split(/\s+/)[0];
+        formView.hidden = true;
+        doneView.hidden = false;
+        form.reset();
+      }).catch(function () {
+        errorBox.textContent = "We couldn't save your details. Please try again, or email Elevatedid1@gmail.com.";
+      }).then(function () {
+        submitBtn.disabled = false;
+        submitLabel.textContent = "Continue";
+      });
+    });
+
     document.querySelectorAll(".js-checkout").forEach(function (btn) {
+      if (LEAD_API_URL) {
+        btn.addEventListener("click", function (e) { e.preventDefault(); showForm(); });
+        return;
+      }
       if (CHECKOUT_URL) {
         btn.href = CHECKOUT_URL;
         return;

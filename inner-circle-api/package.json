@@ -1,0 +1,12 @@
+{
+  "name": "inner-circle-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Signup and Telegram invite service for the Elevated ID Inner Circle",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
