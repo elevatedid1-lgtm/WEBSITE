@@ -14,22 +14,42 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --black: #0a0a0a;
-      --ink: #141414;
-      --line: #262626;
-      --white: #ffffff;
-      --muted: #a3a3a3;
-      --soft: #d4d4d4;
-      --gold: #c9a24a; /* accent only: rules, borders, one highlighted line. Never a background. */
+    /* Light by default. Sections with class="tint" use a warm off-white,
+       sections with class="dark" are black accent bands. */
+    :root, .light {
+      --bg: #ffffff;
+      --text: #111111;
+      --ink: #faf8f4;           /* card background */
+      --line: #e8e4dc;
+      --muted: #6b6760;
+      --soft: #3d3a35;
+      --gold: #a9802a;          /* deeper gold so it reads on white */
+      --btn-bg: #111111;
+      --btn-fg: #ffffff;
       --radius: 14px;
       --max: 1080px;
+    }
+    .tint {
+      --bg: #f6f2ea;
+      --ink: #ffffff;
+      --line: #e3ddd1;
+    }
+    .dark {
+      --bg: #0a0a0a;
+      --text: #ffffff;
+      --ink: #161616;
+      --line: #2a2a2a;
+      --muted: #a3a3a3;
+      --soft: #d4d4d4;
+      --gold: #c9a24a;
+      --btn-bg: #ffffff;
+      --btn-fg: #0a0a0a;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      background: var(--black);
-      color: var(--white);
+      background: var(--bg);
+      color: var(--text);
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
       font-size: 17px;
       line-height: 1.6;
@@ -40,7 +60,9 @@
     }
     a { color: inherit; }
     .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    header, section, footer { background: var(--bg); color: var(--text); }
     section { padding: 88px 0; border-top: 1px solid var(--line); }
+    .tint, .dark { border-top: 0; }
 
     /* Header: wordmark only, no links to the rest of the site */
     header { padding: 28px 0; }
@@ -76,8 +98,8 @@
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      background: var(--white); color: var(--black);
-      border: 1px solid var(--white); border-radius: 999px;
+      background: var(--btn-bg); color: var(--btn-fg);
+      border: 1px solid var(--btn-bg); border-radius: 999px;
       padding: 18px 34px; font-weight: 700; font-size: 15px;
       letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
       cursor: pointer; transition: transform .15s ease, box-shadow .15s ease;
@@ -162,7 +184,7 @@
 
     /* Footer */
     footer { border-top: 1px solid var(--line); padding: 48px 0 56px; color: var(--muted); font-size: 14px; }
-    footer .wordmark { color: var(--white); }
+    footer .wordmark { color: var(--text); }
     .disclaimer { margin-top: 22px; max-width: 760px; font-size: 13px; line-height: 1.7; }
     .contact { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 24px; }
     .contact a { text-decoration: none; border-bottom: 1px solid var(--line); }
@@ -223,7 +245,7 @@
     </section>
 
     <!-- What's inside -->
-    <section id="inside">
+    <section id="inside" class="tint">
       <div class="wrap">
         <span class="kicker">What's inside</span>
         <h2>Everything you get as a member</h2>
@@ -282,7 +304,7 @@
     </section>
 
     <!-- How it works -->
-    <section>
+    <section class="dark">
       <div class="wrap">
         <span class="kicker">How it works</span>
         <h2>Three steps to get in</h2>
@@ -333,7 +355,7 @@
     </section>
 
     <!-- FAQ -->
-    <section>
+    <section class="tint">
       <div class="wrap">
         <span class="kicker">Questions</span>
         <h2>Frequently asked questions</h2>
@@ -368,7 +390,7 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="dark">
     <div class="wrap">
       <span class="wordmark" aria-label="Elevated Identities">
         <span class="monogram" aria-hidden="true">EI</span>
