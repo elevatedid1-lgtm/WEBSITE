@@ -84,7 +84,7 @@
     }
 
     /* Hero */
-    .hero { padding: 72px 0 96px; border-top: 0; }
+    .hero { border-top: 0; }
     .eyebrow {
       display: inline-block; font-size: 12px; font-weight: 600;
       letter-spacing: .28em; text-transform: uppercase; color: var(--muted);
@@ -203,7 +203,6 @@
     @media (max-width: 560px) {
       body { font-size: 16px; }
       .wrap { padding: 0 16px; }
-      .hero { padding: 40px 0 64px; }
       .grid, .steps { grid-template-columns: 1fr; }
       .hero-cta { flex-direction: column; align-items: stretch; }
       .hero-cta .btn { width: 100%; }
@@ -211,6 +210,128 @@
       .offer { padding: 36px 22px; }
       .offer .price { font-size: 52px; }
     }
+    /* ---------- Hero, stage two ---------- */
+    .hero { position: relative; overflow: hidden; padding: 56px 0 96px;
+      background: linear-gradient(160deg, #fbf7ef 0%, #ffffff 55%, #f7f1e4 100%); }
+    .hero-bg { position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(169,128,42,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(169,128,42,.07) 1px, transparent 1px);
+      background-size: 48px 48px;
+      -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 0%, transparent 70%);
+              mask-image: radial-gradient(ellipse at 70% 40%, #000 0%, transparent 70%); }
+    .orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; }
+    .o1 { width: 420px; height: 420px; background: #f0d89a; right: -80px; top: -60px; animation: drift 14s ease-in-out infinite; }
+    .o2 { width: 300px; height: 300px; background: #f6e7c4; left: 30%; bottom: -120px; animation: drift 18s ease-in-out infinite reverse; }
+    .o3 { width: 220px; height: 220px; background: #e9c46a; right: 22%; top: 45%; opacity: .3; animation: drift 11s ease-in-out infinite; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.08fr .92fr; gap: 40px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; }
+    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #2fbf71; box-shadow: 0 0 0 0 rgba(47,191,113,.6); animation: live 2s ease-out infinite; }
+    .pills { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .pills li { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px;
+      background: #fff; border: 1px solid var(--line); font-size: 14px; font-weight: 600; color: var(--soft);
+      box-shadow: 0 6px 18px -12px rgba(0,0,0,.25); }
+    .pills svg { width: 16px; height: 16px; fill: none; stroke: var(--gold); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .hero-cta { margin-top: 32px; }
+    .hero h1 { font-size: clamp(36px, 4.6vw, 58px); }
+    header { background: #fcf9f2; }
+
+    /* Phone showing the channel */
+    .hero-visual { position: relative; display: flex; justify-content: center; padding: 20px 0 40px; }
+    .phone { position: relative; width: 300px; height: 560px; border-radius: 42px; padding: 10px;
+      background: #111; box-shadow: 0 40px 80px -30px rgba(0,0,0,.55), inset 0 0 0 2px #2a2a2a;
+      animation: floaty 7s ease-in-out infinite; }
+    .phone::before { content: ""; position: absolute; top: 18px; left: 50%; width: 90px; height: 22px; margin-left: -45px; border-radius: 12px; background: #000; z-index: 2; }
+    .tg-head { display: flex; align-items: center; gap: 10px; padding: 44px 14px 12px; background: #17212b; border-radius: 32px 32px 0 0; color: #fff; }
+    .tg-avatar { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; flex: none;
+      background: linear-gradient(135deg, #e6c97f, #a9802a); color: #111; font-weight: 800; font-size: 13px; }
+    .tg-title { display: flex; flex-direction: column; font-weight: 700; font-size: 14px; line-height: 1.25; }
+    .tg-title small { display: inline-flex; align-items: center; gap: 4px; font-weight: 400; font-size: 12px; color: #8a9aa9; }
+    .tg-title svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 2.2; }
+    .tg-body { height: calc(100% - 94px); padding: 14px 12px; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px;
+      background: #0e1621 radial-gradient(circle at 20% 10%, rgba(201,162,74,.12), transparent 50%); border-radius: 0 0 32px 32px; overflow: hidden; }
+    .post { position: relative; background: #182533; color: #e8edf2; border-radius: 14px 14px 14px 4px; padding: 9px 12px 18px; font-size: 12.5px; line-height: 1.45;
+      opacity: 0; animation: pop .6s cubic-bezier(.2,.9,.3,1.2) forwards; }
+    .post .tag { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #e6c97f; margin-bottom: 3px; }
+    .post .meta { position: absolute; right: 10px; bottom: 4px; font-size: 10px; color: #6d8091; }
+    .p1 { animation-delay: .9s; } .p2 { animation-delay: 1.7s; } .p3 { animation-delay: 2.5s; } .p4 { animation-delay: 3.3s; }
+    .typing { align-self: flex-start; display: flex; gap: 4px; padding: 10px 12px; background: #182533; border-radius: 14px; opacity: 0; animation: pop .4s ease forwards 4.1s; }
+    .typing span { width: 6px; height: 6px; border-radius: 50%; background: #8a9aa9; animation: dots 1.2s ease-in-out infinite; }
+    .typing span:nth-child(2) { animation-delay: .15s; } .typing span:nth-child(3) { animation-delay: .3s; }
+
+    .float-card { position: absolute; background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      box-shadow: 0 24px 50px -24px rgba(0,0,0,.35); }
+    .check-card { left: -10px; bottom: 30px; width: 238px; padding: 16px 16px 14px; opacity: 0;
+      animation: rise .8s cubic-bezier(.2,.7,.2,1) 1.2s forwards, floaty 8s ease-in-out 2s infinite; }
+    .fc-title { display: block; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .check-card ul { list-style: none; }
+    .check-card li { display: flex; align-items: center; gap: 10px; padding: 5px 0; font-size: 13px; font-weight: 600; color: var(--soft); }
+    .check-card i { position: relative; flex: none; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--line); animation: tick .4s ease forwards; }
+    .check-card i::after { content: ""; position: absolute; left: 4px; top: 2px; width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg) scale(0); animation: tickmark .3s ease forwards; }
+    .check-card li:nth-child(1) i, .check-card li:nth-child(1) i::after { animation-delay: 2s; }
+    .check-card li:nth-child(2) i, .check-card li:nth-child(2) i::after { animation-delay: 2.5s; }
+    .check-card li:nth-child(3) i, .check-card li:nth-child(3) i::after { animation-delay: 3s; }
+    .check-card li:nth-child(4) i, .check-card li:nth-child(4) i::after { animation-delay: 3.5s; }
+    .bar { display: block; height: 5px; margin-top: 10px; border-radius: 5px; background: #f0ebe1; overflow: hidden; }
+    .bar span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #a9802a, #e6c97f); animation: fill 1.8s ease 2s forwards; }
+    .price-chip { right: 0; top: 40px; display: flex; align-items: center; gap: 10px; padding: 12px 16px; opacity: 0;
+      animation: rise .8s cubic-bezier(.2,.7,.2,1) 1.5s forwards, floaty 6s ease-in-out 2.3s infinite; }
+    .price-chip strong { font-family: "Playfair Display", Georgia, serif; font-size: 28px; line-height: 1; }
+    .price-chip span { font-size: 11.5px; line-height: 1.3; color: var(--muted); font-weight: 600; }
+
+    /* Scrolling banner */
+    .ticker { background: #0a0a0a; color: #e6c97f; overflow: hidden; padding: 16px 0; white-space: nowrap; }
+    .ticker .track { display: inline-flex; animation: marquee 32s linear infinite; }
+    .ticker span { font-family: "DM Sans", sans-serif; font-weight: 700; font-size: 14px; letter-spacing: .22em; text-transform: uppercase; padding: 0 28px; }
+    .ticker span::after { content: "\2726"; margin-left: 56px; color: #6b5a33; }
+    .ticker + section { border-top: 0; }
+
+    /* Button shine */
+    .btn { position: relative; overflow: hidden; }
+    .btn::after { content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent); transform: skewX(-20deg);
+      animation: sweep 4.5s ease-in-out 2.5s infinite; }
+    .dark .btn::after { background: linear-gradient(100deg, transparent, rgba(201,162,74,.45), transparent); }
+
+    /* Membership card: moving gold edge */
+    .offer { position: relative; border-top: 1px solid var(--line); overflow: hidden; }
+    .offer::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px;
+      background: linear-gradient(90deg, #a9802a, #f0d89a, #a9802a, #f0d89a); background-size: 300% 100%; animation: shine 5s linear infinite; }
+
+    /* Sticky join bar */
+    .sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; padding: 12px 0;
+      background: rgba(10,10,10,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: #fff;
+      border-top: 1px solid #c9a24a; transform: translateY(110%); transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+    .sticky-cta.show { transform: none; }
+    .sticky-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .sc-text { font-size: 15px; color: #d4d4d4; }
+    .sc-text strong { font-family: "Playfair Display", Georgia, serif; font-size: 22px; color: #fff; margin-right: 4px; }
+    .btn-sm { padding: 12px 22px; font-size: 13px; background: #fff; color: #0a0a0a; border-color: #fff; }
+    footer { padding-bottom: 110px; }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 10px; }
+      .hero-visual { margin-top: 10px; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding: 32px 0 56px; }
+      .phone { width: 260px; height: 500px; }
+      .check-card { left: -6px; bottom: 6px; width: 206px; padding: 12px; }
+      .check-card li { font-size: 12px; }
+      .price-chip { right: -6px; top: 20px; }
+      .pills li { font-size: 13px; padding: 8px 12px; }
+      .sc-text { font-size: 13px; }
+    }
+
+    @keyframes drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-30px, 25px); } }
+    @keyframes floaty { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+    @keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.96); } to { opacity: 1; transform: none; } }
+    @keyframes dots { 0%, 60%, 100% { transform: none; opacity: .5; } 30% { transform: translateY(-4px); opacity: 1; } }
+    @keyframes tick { to { background: #a9802a; border-color: #a9802a; } }
+    @keyframes tickmark { to { transform: rotate(45deg) scale(1); } }
+    @keyframes fill { to { width: 100%; } }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    @keyframes sweep { 0% { left: -60%; } 30%, 100% { left: 130%; } }
+    @keyframes live { 0% { box-shadow: 0 0 0 0 rgba(47,191,113,.6); } 80%, 100% { box-shadow: 0 0 0 8px rgba(47,191,113,0); } }
+
     /* ---------- Animation ---------- */
     @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
     @keyframes shine { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
@@ -264,6 +385,10 @@
       *, *::before, *::after { animation: none !important; transition: none !important; }
       .js .reveal { opacity: 1; transform: none; }
       h1 .accent { color: var(--gold); background: none; }
+      .post, .typing, .check-card, .price-chip { opacity: 1; }
+      .check-card i { background: #a9802a; border-color: #a9802a; }
+      .check-card i::after { transform: rotate(45deg) scale(1); }
+      .bar span { width: 100%; }
     }
   </style>
 </head>
@@ -281,23 +406,74 @@
   <main>
     <!-- Hero -->
     <section class="hero">
-      <div class="wrap">
-        <span class="eyebrow">Private Telegram Community</span>
-        <h1>Build stronger credit. Get <span class="accent">funding-ready.</span> Learn it inside the Inner Circle.</h1>
-        <p class="lede">Elevated ID Inner Circle is a private Telegram channel where Elevated Identities shares practical credit and funding education every week, and where you can ask questions and talk with the team.</p>
-        <div class="hero-cta">
-          <a class="btn js-checkout" href="#join">
-            Proceed to Join
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <div class="price-tag">
-            <span class="price">$50</span>
-            <span class="price-note">one-time payment<br>lifetime access</span>
+      <div class="hero-bg" aria-hidden="true">
+        <span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span>
+      </div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Private Telegram Community</span>
+          <h1>Build stronger credit. Get <span class="accent">funding-ready.</span> Learn it inside the Inner Circle.</h1>
+          <p class="lede">Elevated ID Inner Circle is a private Telegram channel where Elevated Identities shares practical credit and funding education every week, and where you can ask questions and talk with the team.</p>
+          <ul class="pills">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zm0 0a2 2 0 0 1 2-2h12"/></svg>Weekly credit lessons</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Ask the team directly</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"/></svg>Lifetime access</li>
+          </ul>
+          <div class="hero-cta">
+            <a class="btn js-checkout" href="#join">
+              Proceed to Join
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <div class="price-tag">
+              <span class="price">$50</span>
+              <span class="price-note">one-time payment<br>lifetime access</span>
+            </div>
+          </div>
+          <p class="fine">No subscription. No monthly fees. Educational content only.</p>
+        </div>
+
+        <!-- Illustration of the channel: decorative, so hidden from screen readers -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="phone">
+            <div class="tg-head">
+              <span class="tg-avatar">EI</span>
+              <span class="tg-title">Elevated ID Inner Circle<small><svg viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"/></svg>private channel</small></span>
+            </div>
+            <div class="tg-body">
+              <div class="post p1"><span class="tag">Pinned</span>Welcome to the Inner Circle. Start with the guide below, then catch this week's lesson.<span class="meta">9:00</span></div>
+              <div class="post p2"><span class="tag">This week's lesson</span>How utilization is really calculated, and the two dates that matter most.<span class="meta">9:04</span></div>
+              <div class="post p3"><span class="tag">Funding readiness</span>What lenders check before they say yes, and how to prepare first.<span class="meta">9:12</span></div>
+              <div class="post p4"><span class="tag">Member Q&amp;A</span>"Can an authorized user tradeline help a thin file?" Answered in the comments.<span class="meta">9:20</span></div>
+              <div class="typing"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+
+          <div class="float-card check-card">
+            <span class="fc-title">Funding-ready checklist</span>
+            <ul>
+              <li><i></i>Payment history on track</li>
+              <li><i></i>Utilization under control</li>
+              <li><i></i>Tradelines understood</li>
+              <li><i></i>Lender requirements mapped</li>
+            </ul>
+            <span class="bar"><span></span></span>
+          </div>
+
+          <div class="float-card price-chip">
+            <strong>$50</strong>
+            <span>once<br>lifetime access</span>
           </div>
         </div>
-        <p class="fine">No subscription. No monthly fees. Educational content only.</p>
       </div>
     </section>
+
+    <!-- Scrolling banner -->
+    <div class="ticker" aria-hidden="true">
+      <div class="track">
+        <span>Weekly credit lessons</span><span>Funding readiness</span><span>Tradelines explained</span><span>Ask the team</span><span>$50 one-time</span><span>Lifetime access</span><span>Private and protected</span>
+        <span>Weekly credit lessons</span><span>Funding readiness</span><span>Tradelines explained</span><span>Ask the team</span><span>$50 one-time</span><span>Lifetime access</span><span>Private and protected</span>
+      </div>
+    </div>
 
     <!-- What's inside -->
     <section id="inside" class="tint">
@@ -445,6 +621,17 @@
     </section>
   </main>
 
+  <!-- Join bar that follows visitors once they scroll past the top -->
+  <div class="sticky-cta" aria-hidden="true">
+    <div class="wrap sticky-inner">
+      <span class="sc-text"><strong>$50</strong> one-time &middot; lifetime access</span>
+      <a class="btn btn-sm js-checkout" href="#join" tabindex="-1">
+        Join Now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+
   <footer class="dark">
     <div class="wrap">
       <span class="wordmark" aria-label="Elevated Identities">
@@ -467,6 +654,21 @@
     const CHECKOUT_URL = "";
 
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Sticky join bar: shows after the top section, hides when the membership box is on screen.
+    (function () {
+      var bar = document.querySelector(".sticky-cta");
+      if (!bar || !("IntersectionObserver" in window)) return;
+      var heroOut = false, joinIn = false;
+      function update() {
+        var on = heroOut && !joinIn;
+        bar.classList.toggle("show", on);
+        bar.setAttribute("aria-hidden", on ? "false" : "true");
+        bar.querySelector("a").tabIndex = on ? 0 : -1;
+      }
+      new IntersectionObserver(function (e) { heroOut = !e[0].isIntersecting; update(); }).observe(document.querySelector(".hero"));
+      new IntersectionObserver(function (e) { joinIn = e[0].isIntersecting; update(); }, { threshold: 0.2 }).observe(document.querySelector(".offer"));
+    })();
 
     // Scroll reveal: items float up as they come into view, siblings slightly staggered.
     (function () {
