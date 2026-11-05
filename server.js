@@ -97,7 +97,10 @@ const INNER_CIRCLE_CSP = INNER_CIRCLE_ORIGIN
   : CSP;
 
 function isInnerCircle(urlPath) {
-  return urlPath === "/telegram-channel" || urlPath === "/telegram-channel.html";
+  return (
+    urlPath === "/telegram-channel" || urlPath === "/telegram-channel.html" ||
+    urlPath === "/innercircle" || urlPath === "/innercircle/"
+  );
 }
 
 function isOnboarding(urlPath) {
@@ -229,7 +232,12 @@ const server = http.createServer((req, res) => {
   }
 
   const urlPath = (req.url || "/").split("?")[0].split("#")[0];
-  const target = resolveWithin(ROOT, urlPath === "/" ? "/index.html" : urlPath);
+  // Short link: /innercircle shows the same page as /telegram-channel (no redirect, URL stays short).
+  const servedPath =
+    urlPath === "/" ? "/index.html" :
+    urlPath === "/innercircle" || urlPath === "/innercircle/" ? "/telegram-channel.html" :
+    urlPath;
+  const target = resolveWithin(ROOT, servedPath);
   if (!target) return sendNotFound(req, res);
 
   const found = locate(target);
