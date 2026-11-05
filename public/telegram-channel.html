@@ -10,6 +10,7 @@
   <meta property="og:title" content="Elevated ID Inner Circle">
   <meta property="og:description" content="Private credit and funding education on Telegram. $50 once, lifetime access.">
   <meta property="og:type" content="website">
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
@@ -210,9 +211,59 @@
       .offer { padding: 36px 22px; }
       .offer .price { font-size: 52px; }
     }
+    /* ---------- Animation ---------- */
+    @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+    @keyframes shine { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    @keyframes ring { 0% { box-shadow: 0 0 0 0 rgba(201, 162, 74, .45); } 70%, 100% { box-shadow: 0 0 0 12px rgba(201, 162, 74, 0); } }
+
+    /* Hero eases in on load, one line after another */
+    header .wordmark, .hero .eyebrow, .hero h1, .hero .lede, .hero .hero-cta, .hero .fine {
+      animation: rise .9s cubic-bezier(.2, .7, .2, 1) both;
+    }
+    header .wordmark { animation-delay: 0s; }
+    .hero .eyebrow  { animation-delay: .1s; }
+    .hero h1        { animation-delay: .22s; }
+    .hero .lede     { animation-delay: .4s; }
+    .hero .hero-cta { animation-delay: .55s; }
+    .hero .fine     { animation-delay: .7s; }
+
+    /* Slow gold shimmer on the highlighted words */
+    h1 .accent {
+      background: linear-gradient(100deg, var(--gold) 20%, #e6c97f 50%, var(--gold) 80%);
+      background-size: 250% 100%;
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+      animation: shine 6s ease-in-out infinite;
+    }
+
+    /* Monogram gives one soft gold pulse when the page opens */
+    header .monogram { animation: ring 1.6s ease-out .9s 1; }
+
+    /* Sections float up as they scroll into view */
+    .js .reveal {
+      opacity: 0; transform: translateY(26px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1);
+      transition-delay: var(--d, 0s);
+    }
+    .js .rule.reveal { opacity: 1; transform: scaleX(0); transform-origin: left center; }
+    .js .reveal.in { opacity: 1; transform: none; }
+
+    /* Hover touches */
+    .card { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+    .card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 18px 40px -22px rgba(0, 0, 0, .35); }
+    .btn svg { transition: transform .25s ease; }
+    .btn:hover svg { transform: translateX(5px); }
+    .offer { transition: box-shadow .4s ease; }
+    .offer:hover { box-shadow: 0 24px 60px -30px rgba(169, 128, 42, .55); }
+    summary { transition: color .2s ease; }
+    summary:hover { color: var(--gold); }
+    details[open] p { animation: rise .45s ease both; }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .btn { transition: none; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .js .reveal { opacity: 1; transform: none; }
+      h1 .accent { color: var(--gold); background: none; }
     }
   </style>
 </head>
@@ -416,6 +467,40 @@
     const CHECKOUT_URL = "";
 
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll reveal: items float up as they come into view, siblings slightly staggered.
+    (function () {
+      var groups = [
+        "main section:not(.hero) .kicker", "main section:not(.hero) h2", ".rule",
+        ".card", ".checklist li", ".step", ".offer", ".faq details",
+        "footer .wordmark", "footer .contact", "footer .disclaimer"
+      ];
+      var items = [];
+      groups.forEach(function (sel) {
+        document.querySelectorAll(sel).forEach(function (el) {
+          var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+          var stagger = /card|li|step|details/.test(sel) ? Math.min(i, 5) * 0.09 : 0;
+          el.style.setProperty("--d", stagger + "s");
+          el.classList.add("reveal");
+          items.push(el);
+        });
+      });
+      function show(el) {
+        el.classList.add("in");
+        // Hand the element back to its normal hover transitions once it has settled.
+        setTimeout(function () {
+          el.classList.remove("reveal", "in");
+          el.style.removeProperty("--d");
+        }, 1400);
+      }
+      if (!("IntersectionObserver" in window)) { items.forEach(show); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { show(e.target); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      items.forEach(function (el) { io.observe(el); });
+    })();
 
     document.querySelectorAll(".js-checkout").forEach(function (btn) {
       if (CHECKOUT_URL) {
