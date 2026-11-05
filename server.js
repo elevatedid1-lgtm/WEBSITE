@@ -79,6 +79,27 @@ const ONBOARDING_CSP = [
   "object-src 'none'",
 ].join("; ");
 
+// The Inner Circle page posts its details form to the signup service, which runs
+// as a separate Railway service. Set INNER_CIRCLE_API_ORIGIN (for example
+// https://inner-circle.up.railway.app) on the website service and that one address
+// is allowed for this page only. Left unset, the page keeps the stricter policy.
+let INNER_CIRCLE_ORIGIN = "";
+try {
+  if (process.env.INNER_CIRCLE_API_ORIGIN) {
+    INNER_CIRCLE_ORIGIN = new URL(process.env.INNER_CIRCLE_API_ORIGIN).origin;
+  }
+} catch {
+  console.warn("INNER_CIRCLE_API_ORIGIN is not a valid URL and was ignored.");
+}
+
+const INNER_CIRCLE_CSP = INNER_CIRCLE_ORIGIN
+  ? CSP.replace("connect-src 'self' https://formspree.io", "connect-src 'self' https://formspree.io " + INNER_CIRCLE_ORIGIN)
+  : CSP;
+
+function isInnerCircle(urlPath) {
+  return urlPath === "/telegram-channel" || urlPath === "/telegram-channel.html";
+}
+
 function isOnboarding(urlPath) {
   return urlPath === "/onboarding" || urlPath === "/onboarding.html";
 }
@@ -89,7 +110,10 @@ function securityHeaders(req, res) {
   res.setHeader("X-Frame-Options", "SAMEORIGIN");
   res.setHeader("Permissions-Policy", "geolocation=(), microphone=(), camera=(), payment=()");
   var path = (req.url || "/").split("?")[0].split("#")[0];
-  res.setHeader("Content-Security-Policy", isOnboarding(path) ? ONBOARDING_CSP : CSP);
+  res.setHeader(
+    "Content-Security-Policy",
+    isOnboarding(path) ? ONBOARDING_CSP : isInnerCircle(path) ? INNER_CIRCLE_CSP : CSP
+  );
   // Only once TLS is actually terminating in front of us, which Railway does.
   if ((req.headers["x-forwarded-proto"] || "").split(",")[0].trim() === "https") {
     res.setHeader("Strict-Transport-Security", "max-age=15552000; includeSubDomains");
