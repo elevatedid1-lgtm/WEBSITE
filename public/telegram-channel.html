@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elevated ID Inner Circle | Private Telegram Community</title>
+  <meta name="description" content="Private credit and funding education from Elevated Identities. One-time $50 for lifetime access to the Elevated ID Inner Circle Telegram channel.">
+  <!-- Hidden page: keep it out of search results and out of the site's menus and sitemap -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Elevated ID Inner Circle">
+  <meta property="og:description" content="Private credit and funding education on Telegram. $50 once, lifetime access.">
+  <meta property="og:type" content="website">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    /* Light by default. Sections with class="tint" use a warm off-white,
+       sections with class="dark" are black accent bands. */
+    :root, .light {
+      --bg: #ffffff;
+      --text: #111111;
+      --ink: #faf8f4;           /* card background */
+      --line: #e8e4dc;
+      --muted: #6b6760;
+      --soft: #3d3a35;
+      --gold: #a9802a;          /* deeper gold so it reads on white */
+      --btn-bg: #111111;
+      --btn-fg: #ffffff;
+      --radius: 14px;
+      --max: 1080px;
+    }
+    .tint {
+      --bg: #f6f2ea;
+      --ink: #ffffff;
+      --line: #e3ddd1;
+    }
+    .dark {
+      --bg: #0a0a0a;
+      --text: #ffffff;
+      --ink: #161616;
+      --line: #2a2a2a;
+      --muted: #a3a3a3;
+      --soft: #d4d4d4;
+      --gold: #c9a24a;
+      --btn-bg: #ffffff;
+      --btn-fg: #0a0a0a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Headlines and prices in an elegant serif; labels and buttons stay in the clean sans */
+    h1, h2, h3, .price {
+      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    .wordmark, .btn, .card .num, .step h3::before {
+      font-family: "DM Sans", system-ui, sans-serif;
+    }
+    a { color: inherit; }
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    header, section, footer { background: var(--bg); color: var(--text); }
+    section { padding: 88px 0; border-top: 1px solid var(--line); }
+    .tint, .dark { border-top: 0; }
+
+    /* Header: wordmark only, no links to the rest of the site */
+    header { padding: 28px 0; }
+    .wordmark {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-weight: 700; font-size: 13px; letter-spacing: .42em; text-transform: uppercase;
+      text-decoration: none;
+    }
+    .monogram {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1px solid var(--gold);
+      display: grid; place-items: center;
+      font-weight: 800; font-size: 14px; letter-spacing: .08em;
+    }
+
+    /* Hero */
+    .hero { border-top: 0; }
+    .eyebrow {
+      display: inline-block; font-size: 12px; font-weight: 600;
+      letter-spacing: .28em; text-transform: uppercase; color: var(--muted);
+      padding-bottom: 10px; border-bottom: 1px solid var(--gold); margin-bottom: 28px;
+    }
+    h1 {
+      font-size: clamp(36px, 6vw, 64px); line-height: 1.08; font-weight: 800;
+      letter-spacing: -.01em; max-width: 820px;
+    }
+    h1 .accent { color: var(--gold); }
+    .lede { margin-top: 24px; max-width: 620px; color: var(--soft); font-size: 19px; }
+    .hero-cta { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; }
+    .price-tag { display: flex; align-items: baseline; gap: 10px; }
+    .price { font-size: 40px; font-weight: 800; }
+    .price-note { color: var(--muted); font-size: 15px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--btn-bg); color: var(--btn-fg);
+      border: 1px solid var(--btn-bg); border-radius: 999px;
+      padding: 18px 34px; font-weight: 700; font-size: 15px;
+      letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
+      cursor: pointer; transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 0 0 4px rgba(201, 162, 74, .35); }
+    .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+    .btn svg { width: 18px; height: 18px; }
+    .fine { margin-top: 16px; font-size: 13px; color: var(--muted); }
+    .checkout-msg { margin-top: 14px; font-size: 14px; color: var(--soft); min-height: 1em; }
+
+    /* Section headings */
+    .kicker { font-size: 12px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); }
+    h2 { margin-top: 12px; font-size: clamp(28px, 4vw, 40px); line-height: 1.15; font-weight: 800; max-width: 680px; }
+    .rule { width: 56px; height: 1px; background: var(--gold); margin: 22px 0 0; border: 0; }
+
+    /* Benefits grid */
+    .grid { margin-top: 48px; display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+    .card {
+      background: var(--ink); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 28px 26px;
+    }
+    .card .num { font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: .2em; }
+    .card h3 { margin-top: 14px; font-size: 19px; font-weight: 700; line-height: 1.3; }
+    .card p { margin-top: 10px; color: var(--muted); font-size: 15.5px; }
+
+    /* Who it's for */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .checklist { list-style: none; margin-top: 8px; }
+    .checklist li {
+      position: relative; padding: 16px 0 16px 34px; border-bottom: 1px solid var(--line); color: var(--soft);
+    }
+    .checklist li:last-child { border-bottom: 0; }
+    .checklist li::before {
+      content: ""; position: absolute; left: 4px; top: 25px;
+      width: 12px; height: 7px; border-left: 2px solid var(--gold); border-bottom: 2px solid var(--gold);
+      transform: rotate(-45deg);
+    }
+
+    /* Steps */
+    .steps { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
+    .step { padding-top: 22px; border-top: 1px solid var(--gold); }
+    .step h3 { font-size: 18px; font-weight: 700; }
+    .step h3::before {
+      counter-increment: step; content: "0" counter(step);
+      display: block; font-size: 13px; letter-spacing: .2em; color: var(--muted); margin-bottom: 8px;
+    }
+    .step p { margin-top: 8px; color: var(--muted); font-size: 15.5px; }
+
+    /* Membership card */
+    .offer {
+      margin: 48px auto 0; max-width: 560px; text-align: center;
+      background: var(--ink); border: 1px solid var(--line); border-top: 2px solid var(--gold);
+      border-radius: var(--radius); padding: 44px 32px;
+    }
+    .offer .name { font-size: 13px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); }
+    .offer .price { display: block; margin-top: 14px; font-size: 64px; line-height: 1; }
+    .offer .price-note { display: block; margin-top: 8px; }
+    .offer ul { list-style: none; margin: 30px 0 34px; text-align: left; }
+    .offer li { padding: 12px 0 12px 30px; position: relative; border-bottom: 1px solid var(--line); color: var(--soft); font-size: 16px; }
+    .offer li::before {
+      content: ""; position: absolute; left: 2px; top: 20px;
+      width: 11px; height: 6px; border-left: 2px solid var(--gold); border-bottom: 2px solid var(--gold);
+      transform: rotate(-45deg);
+    }
+    .offer .btn { width: 100%; }
+
+    /* FAQ */
+    .faq { margin-top: 40px; max-width: 760px; }
+    details { border-bottom: 1px solid var(--line); }
+    summary {
+      list-style: none; cursor: pointer; padding: 22px 40px 22px 0; position: relative;
+      font-weight: 600; font-size: 17px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+      font-size: 24px; font-weight: 400; color: var(--gold);
+    }
+    details[open] summary::after { content: "\2013"; }
+    summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+    details p { padding: 0 0 22px; color: var(--muted); max-width: 680px; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--line); padding: 48px 0 56px; color: var(--muted); font-size: 14px; }
+    footer .wordmark { color: var(--text); }
+    .disclaimer { margin-top: 22px; max-width: 760px; font-size: 13px; line-height: 1.7; }
+    .contact { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+    .contact a { text-decoration: none; border-bottom: 1px solid var(--line); }
+    .contact a:hover { border-color: var(--gold); }
+
+    @media (max-width: 860px) {
+      section { padding: 64px 0; }
+      .grid, .steps { grid-template-columns: 1fr 1fr; }
+      .split { grid-template-columns: 1fr; gap: 24px; }
+    }
+    @media (max-width: 560px) {
+      body { font-size: 16px; }
+      .wrap { padding: 0 16px; }
+      .grid, .steps { grid-template-columns: 1fr; }
+      .hero-cta { flex-direction: column; align-items: stretch; }
+      .hero-cta .btn { width: 100%; }
+      .wordmark { letter-spacing: .14em; font-size: 15px; gap: 12px; }
+      .monogram { width: 44px; height: 44px; font-size: 15px; }
+      .offer { padding: 36px 22px; }
+      .offer .price { font-size: 52px; }
+    }
+    /* ---------- Hero, stage two ---------- */
+    .hero { position: relative; overflow: hidden; padding: 56px 0 96px;
+      background: linear-gradient(160deg, #fbf7ef 0%, #ffffff 55%, #f7f1e4 100%); }
+    .hero-bg { position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(169,128,42,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(169,128,42,.07) 1px, transparent 1px);
+      background-size: 48px 48px;
+      -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 0%, transparent 70%);
+              mask-image: radial-gradient(ellipse at 70% 40%, #000 0%, transparent 70%); }
+    .orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; }
+    .o1 { width: 420px; height: 420px; background: #f0d89a; right: -80px; top: -60px; animation: drift 14s ease-in-out infinite; }
+    .o2 { width: 300px; height: 300px; background: #f6e7c4; left: 30%; bottom: -120px; animation: drift 18s ease-in-out infinite reverse; }
+    .o3 { width: 220px; height: 220px; background: #e9c46a; right: 22%; top: 45%; opacity: .3; animation: drift 11s ease-in-out infinite; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.08fr .92fr; gap: 40px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; }
+    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #2fbf71; box-shadow: 0 0 0 0 rgba(47,191,113,.6); animation: live 2s ease-out infinite; }
+    .pills { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .pills li { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px;
+      background: #fff; border: 1px solid var(--line); font-size: 14px; font-weight: 600; color: var(--soft);
+      box-shadow: 0 6px 18px -12px rgba(0,0,0,.25); }
+    .pills svg { width: 16px; height: 16px; fill: none; stroke: var(--gold); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .hero-cta { margin-top: 32px; }
+    .hero h1 { font-size: clamp(36px, 4.6vw, 58px); }
+    header { background: #fcf9f2; }
+    /* Bigger brand name */
+    .wordmark { font-size: 19px; letter-spacing: .3em; gap: 16px; font-weight: 800; }
+    .monogram { width: 54px; height: 54px; font-size: 18px; border-width: 2px; }
+    .wordmark { white-space: nowrap; }
+    .monogram { flex: none; }
+    @media (max-width: 560px) {
+      .wordmark { font-size: 15px; letter-spacing: .14em; gap: 12px; }
+      .monogram { width: 44px; height: 44px; font-size: 15px; }
+    }
+    @media (max-width: 350px) {
+      .wordmark { font-size: 13px; letter-spacing: .1em; gap: 10px; }
+    }
+    header { padding: 24px 0; }
+
+    /* Phone showing the channel */
+    .hero-visual { position: relative; display: flex; justify-content: center; padding: 20px 0 40px; }
+    .phone { position: relative; width: 300px; height: 560px; border-radius: 42px; padding: 10px;
+      background: #111; box-shadow: 0 40px 80px -30px rgba(0,0,0,.55), inset 0 0 0 2px #2a2a2a;
+      animation: floaty 7s ease-in-out infinite; }
+    .phone::before { content: ""; position: absolute; top: 18px; left: 50%; width: 90px; height: 22px; margin-left: -45px; border-radius: 12px; background: #000; z-index: 2; }
+    .tg-head { display: flex; align-items: center; gap: 10px; padding: 44px 14px 12px; background: #17212b; border-radius: 32px 32px 0 0; color: #fff; }
+    .tg-avatar { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; flex: none;
+      background: linear-gradient(135deg, #e6c97f, #a9802a); color: #111; font-weight: 800; font-size: 13px; }
+    .tg-title { display: flex; flex-direction: column; font-weight: 700; font-size: 14px; line-height: 1.25; }
+    .tg-title small { display: inline-flex; align-items: center; gap: 4px; font-weight: 400; font-size: 12px; color: #8a9aa9; }
+    .tg-title svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 2.2; }
+    .tg-body { height: calc(100% - 94px); padding: 14px 12px; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px;
+      background: #0e1621 radial-gradient(circle at 20% 10%, rgba(201,162,74,.12), transparent 50%); border-radius: 0 0 32px 32px; overflow: hidden; }
+    .post { position: relative; background: #182533; color: #e8edf2; border-radius: 14px 14px 14px 4px; padding: 9px 12px 18px; font-size: 12.5px; line-height: 1.45;
+      opacity: 0; animation: pop .6s cubic-bezier(.2,.9,.3,1.2) forwards; }
+    .post .tag { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #e6c97f; margin-bottom: 3px; }
+    .post .meta { position: absolute; right: 10px; bottom: 4px; font-size: 10px; color: #6d8091; }
+    .p1 { animation-delay: .9s; } .p2 { animation-delay: 1.7s; } .p3 { animation-delay: 2.5s; } .p4 { animation-delay: 3.3s; }
+    .typing { align-self: flex-start; display: flex; gap: 4px; padding: 10px 12px; background: #182533; border-radius: 14px; opacity: 0; animation: pop .4s ease forwards 4.1s; }
+    .typing span { width: 6px; height: 6px; border-radius: 50%; background: #8a9aa9; animation: dots 1.2s ease-in-out infinite; }
+    .typing span:nth-child(2) { animation-delay: .15s; } .typing span:nth-child(3) { animation-delay: .3s; }
+
+    .float-card { position: absolute; background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      box-shadow: 0 24px 50px -24px rgba(0,0,0,.35); }
+    .check-card { left: -10px; bottom: 30px; width: 238px; padding: 16px 16px 14px; opacity: 0;
+      animation: rise .8s cubic-bezier(.2,.7,.2,1) 1.2s forwards, floaty 8s ease-in-out 2s infinite; }
+    .fc-title { display: block; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .check-card ul { list-style: none; }
+    .check-card li { display: flex; align-items: center; gap: 10px; padding: 5px 0; font-size: 13px; font-weight: 600; color: var(--soft); }
+    .check-card i { position: relative; flex: none; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--line); animation: tick .4s ease forwards; }
+    .check-card i::after { content: ""; position: absolute; left: 4px; top: 2px; width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg) scale(0); animation: tickmark .3s ease forwards; }
+    .check-card li:nth-child(1) i, .check-card li:nth-child(1) i::after { animation-delay: 2s; }
+    .check-card li:nth-child(2) i, .check-card li:nth-child(2) i::after { animation-delay: 2.5s; }
+    .check-card li:nth-child(3) i, .check-card li:nth-child(3) i::after { animation-delay: 3s; }
+    .check-card li:nth-child(4) i, .check-card li:nth-child(4) i::after { animation-delay: 3.5s; }
+    .bar { display: block; height: 5px; margin-top: 10px; border-radius: 5px; background: #f0ebe1; overflow: hidden; }
+    .bar span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #a9802a, #e6c97f); animation: fill 1.8s ease 2s forwards; }
+    .price-chip { right: 0; top: 40px; display: flex; align-items: center; gap: 10px; padding: 12px 16px; opacity: 0;
+      animation: rise .8s cubic-bezier(.2,.7,.2,1) 1.5s forwards, floaty 6s ease-in-out 2.3s infinite; }
+    .price-chip strong { font-family: "Playfair Display", Georgia, serif; font-size: 28px; line-height: 1; }
+    .price-chip span { font-size: 11.5px; line-height: 1.3; color: var(--muted); font-weight: 600; }
+
+    /* Scrolling banner */
+    .ticker { background: #0a0a0a; color: #e6c97f; overflow: hidden; padding: 16px 0; white-space: nowrap; }
+    .ticker .track { display: inline-flex; animation: marquee 32s linear infinite; }
+    .ticker span { font-family: "DM Sans", sans-serif; font-weight: 700; font-size: 14px; letter-spacing: .22em; text-transform: uppercase; padding: 0 28px; }
+    .ticker span::after { content: "\2726"; margin-left: 56px; color: #6b5a33; }
+    .ticker + section { border-top: 0; }
+
+    /* Button shine */
+    .btn { position: relative; overflow: hidden; }
+    .btn::after { content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent); transform: skewX(-20deg);
+      animation: sweep 4.5s ease-in-out 2.5s infinite; }
+    .dark .btn::after { background: linear-gradient(100deg, transparent, rgba(201,162,74,.45), transparent); }
+
+    /* Membership card: moving gold edge */
+    .offer { position: relative; border-top: 1px solid var(--line); overflow: hidden; }
+    .offer::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px;
+      background: linear-gradient(90deg, #a9802a, #f0d89a, #a9802a, #f0d89a); background-size: 300% 100%; animation: shine 5s linear infinite; }
+
+    /* Sticky join bar */
+    .sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; padding: 12px 0;
+      background: rgba(10,10,10,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: #fff;
+      border-top: 1px solid #c9a24a; transform: translateY(110%); transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+    .sticky-cta.show { transform: none; }
+    .sticky-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .sc-text { font-size: 15px; color: #d4d4d4; }
+    .sc-text strong { font-family: "Playfair Display", Georgia, serif; font-size: 22px; color: #fff; margin-right: 4px; }
+    .btn-sm { padding: 12px 22px; font-size: 13px; background: #fff; color: #0a0a0a; border-color: #fff; }
+    footer { padding-bottom: 110px; }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 10px; }
+      .hero-visual { margin-top: 10px; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding: 32px 0 56px; }
+      .phone { width: 260px; height: 500px; }
+      .check-card { left: -6px; bottom: 6px; width: 206px; padding: 12px; }
+      .check-card li { font-size: 12px; }
+      .price-chip { right: -6px; top: 20px; }
+      .pills li { font-size: 13px; padding: 8px 12px; }
+      .sc-text { font-size: 13px; }
+    }
+
+    @keyframes drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-30px, 25px); } }
+    @keyframes floaty { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+    @keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.96); } to { opacity: 1; transform: none; } }
+    @keyframes dots { 0%, 60%, 100% { transform: none; opacity: .5; } 30% { transform: translateY(-4px); opacity: 1; } }
+    @keyframes tick { to { background: #a9802a; border-color: #a9802a; } }
+    @keyframes tickmark { to { transform: rotate(45deg) scale(1); } }
+    @keyframes fill { to { width: 100%; } }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    @keyframes sweep { 0% { left: -60%; } 30%, 100% { left: 130%; } }
+    @keyframes live { 0% { box-shadow: 0 0 0 0 rgba(47,191,113,.6); } 80%, 100% { box-shadow: 0 0 0 8px rgba(47,191,113,0); } }
+
+    /* ---------- Animation ---------- */
+    @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+    @keyframes shine { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    @keyframes ring { 0% { box-shadow: 0 0 0 0 rgba(201, 162, 74, .45); } 70%, 100% { box-shadow: 0 0 0 12px rgba(201, 162, 74, 0); } }
+
+    /* Hero eases in on load, one line after another */
+    header .wordmark, .hero .eyebrow, .hero h1, .hero .lede, .hero .hero-cta, .hero .fine {
+      animation: rise .9s cubic-bezier(.2, .7, .2, 1) both;
+    }
+    header .wordmark { animation-delay: 0s; }
+    .hero .eyebrow  { animation-delay: .1s; }
+    .hero h1        { animation-delay: .22s; }
+    .hero .lede     { animation-delay: .4s; }
+    .hero .hero-cta { animation-delay: .55s; }
+    .hero .fine     { animation-delay: .7s; }
+
+    /* Slow gold shimmer on the highlighted words */
+    h1 .accent {
+      background: linear-gradient(100deg, var(--gold) 20%, #e6c97f 50%, var(--gold) 80%);
+      background-size: 250% 100%;
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+      animation: shine 6s ease-in-out infinite;
+    }
+
+    /* Monogram gives one soft gold pulse when the page opens */
+    header .monogram { animation: ring 1.6s ease-out .9s 1; }
+
+    /* Sections float up as they scroll into view */
+    .js .reveal {
+      opacity: 0; transform: translateY(26px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1);
+      transition-delay: var(--d, 0s);
+    }
+    .js .rule.reveal { opacity: 1; transform: scaleX(0); transform-origin: left center; }
+    .js .reveal.in { opacity: 1; transform: none; }
+
+    /* Hover touches */
+    .card { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+    .card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 18px 40px -22px rgba(0, 0, 0, .35); }
+    .btn svg { transition: transform .25s ease; }
+    .btn:hover svg { transform: translateX(5px); }
+    .offer { transition: box-shadow .4s ease; }
+    .offer:hover { box-shadow: 0 24px 60px -30px rgba(169, 128, 42, .55); }
+    summary { transition: color .2s ease; }
+    summary:hover { color: var(--gold); }
+    details[open] p { animation: rise .45s ease both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .js .reveal { opacity: 1; transform: none; }
+      h1 .accent { color: var(--gold); background: none; }
+      .post, .typing, .check-card, .price-chip { opacity: 1; }
+      .check-card i { background: #a9802a; border-color: #a9802a; }
+      .check-card i::after { transform: rotate(45deg) scale(1); }
+      .bar span { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <span class="wordmark" aria-label="Elevated Identities">
+        <span class="monogram" aria-hidden="true">EI</span>
+        Elevated Identities
+      </span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span>
+      </div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Private Telegram Community</span>
+          <h1>Build stronger credit. Get <span class="accent">funding-ready.</span> Learn it inside the Inner Circle.</h1>
+          <p class="lede">Elevated ID Inner Circle is a private Telegram channel where Elevated Identities shares practical credit and funding education every week, and where you can ask questions and talk with the team.</p>
+          <ul class="pills">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zm0 0a2 2 0 0 1 2-2h12"/></svg>Weekly credit lessons</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Ask the team directly</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"/></svg>Lifetime access</li>
+          </ul>
+          <div class="hero-cta">
+            <a class="btn js-checkout" href="#join">
+              Proceed to Join
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <div class="price-tag">
+              <span class="price">$50</span>
+              <span class="price-note">one-time payment<br>lifetime access</span>
+            </div>
+          </div>
+          <p class="fine">No subscription. No monthly fees. Educational content only.</p>
+        </div>
+
+        <!-- Illustration of the channel: decorative, so hidden from screen readers -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="phone">
+            <div class="tg-head">
+              <span class="tg-avatar">EI</span>
+              <span class="tg-title">Elevated ID Inner Circle<small><svg viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"/></svg>private channel</small></span>
+            </div>
+            <div class="tg-body">
+              <div class="post p1"><span class="tag">Pinned</span>Welcome to the Inner Circle. Start with the guide below, then catch this week's lesson.<span class="meta">9:00</span></div>
+              <div class="post p2"><span class="tag">This week's lesson</span>How utilization is really calculated, and the two dates that matter most.<span class="meta">9:04</span></div>
+              <div class="post p3"><span class="tag">Funding readiness</span>What lenders check before they say yes, and how to prepare first.<span class="meta">9:12</span></div>
+              <div class="post p4"><span class="tag">Member Q&amp;A</span>"Can an authorized user tradeline help a thin file?" Answered in the comments.<span class="meta">9:20</span></div>
+              <div class="typing"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+
+          <div class="float-card check-card">
+            <span class="fc-title">Funding-ready checklist</span>
+            <ul>
+              <li><i></i>Payment history on track</li>
+              <li><i></i>Utilization under control</li>
+              <li><i></i>Tradelines understood</li>
+              <li><i></i>Lender requirements mapped</li>
+            </ul>
+            <span class="bar"><span></span></span>
+          </div>
+
+          <div class="float-card price-chip">
+            <strong>$50</strong>
+            <span>once<br>lifetime access</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scrolling banner -->
+    <div class="ticker" aria-hidden="true">
+      <div class="track">
+        <span>Weekly credit lessons</span><span>Funding readiness</span><span>Tradelines explained</span><span>Ask the team</span><span>$50 one-time</span><span>Lifetime access</span><span>Private and protected</span>
+        <span>Weekly credit lessons</span><span>Funding readiness</span><span>Tradelines explained</span><span>Ask the team</span><span>$50 one-time</span><span>Lifetime access</span><span>Private and protected</span>
+      </div>
+    </div>
+
+    <!-- What's inside -->
+    <section id="inside" class="tint">
+      <div class="wrap">
+        <span class="kicker">What's inside</span>
+        <h2>Everything you get as a member</h2>
+        <hr class="rule">
+        <div class="grid">
+          <div class="card">
+            <span class="num">01</span>
+            <h3>Weekly credit tips</h3>
+            <p>Clear, practical lessons on improving your credit profile, plus the common myths that hold people back.</p>
+          </div>
+          <div class="card">
+            <span class="num">02</span>
+            <h3>Funding readiness</h3>
+            <p>What lenders look at, how business owners prepare to apply, and the steps to take before you ask for capital.</p>
+          </div>
+          <div class="card">
+            <span class="num">03</span>
+            <h3>Tradelines explained</h3>
+            <p>What authorized tradelines are, how they work, and what they can and can't do for your profile.</p>
+          </div>
+          <div class="card">
+            <span class="num">04</span>
+            <h3>Ask your questions</h3>
+            <p>Comment under any post and get answers. Learn from the questions other members ask too.</p>
+          </div>
+          <div class="card">
+            <span class="num">05</span>
+            <h3>Direct line to the team</h3>
+            <p>Message the Elevated Identities team privately inside Telegram when you need to talk something through.</p>
+          </div>
+          <div class="card">
+            <span class="num">06</span>
+            <h3>Private and protected</h3>
+            <p>Members-only channel. Content can't be forwarded or saved, so what's shared inside stays inside.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who it's for -->
+    <section>
+      <div class="wrap split">
+        <div>
+          <span class="kicker">Who it's for</span>
+          <h2>Made for people ready to move forward</h2>
+          <hr class="rule">
+        </div>
+        <ul class="checklist">
+          <li>Individuals working to improve their credit profile</li>
+          <li>Entrepreneurs and small-business owners looking for access to capital</li>
+          <li>Startups and growing businesses that need funding to expand</li>
+          <li>Anyone preparing their credit for a future loan, purchase or application</li>
+          <li>Business owners who want a clear, structured funding strategy</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="dark">
+      <div class="wrap">
+        <span class="kicker">How it works</span>
+        <h2>Three steps to get in</h2>
+        <hr class="rule">
+        <div class="steps">
+          <div class="step">
+            <h3>Pay $50 once</h3>
+            <p>Click Proceed to Join and complete the secure checkout. One payment, no subscription.</p>
+          </div>
+          <div class="step">
+            <h3>Get your private link</h3>
+            <p>As soon as your payment is confirmed, you receive your personal invite link to the channel.</p>
+          </div>
+          <div class="step">
+            <h3>Join and start learning</h3>
+            <p>Open the link in Telegram, read the pinned welcome post, and catch the next lesson.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership -->
+    <section id="join">
+      <div class="wrap">
+        <div style="text-align:center">
+          <span class="kicker">Membership</span>
+          <h2 style="margin-left:auto;margin-right:auto">One payment. Lifetime access.</h2>
+        </div>
+        <div class="offer">
+          <span class="name">Elevated ID Inner Circle</span>
+          <span class="price">$50</span>
+          <span class="price-note">one-time payment</span>
+          <ul>
+            <li>Lifetime access to the private Telegram channel</li>
+            <li>New credit and funding lessons every week</li>
+            <li>Q&amp;A in the comments under every post</li>
+            <li>Direct messages with the Elevated Identities team</li>
+            <li>No subscription and no recurring charges</li>
+          </ul>
+          <a class="btn js-checkout" href="#join">
+            Proceed to Join
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="checkout-msg" role="status" aria-live="polite"></p>
+          <p class="fine">You'll need the free Telegram app to join.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="tint">
+      <div class="wrap">
+        <span class="kicker">Questions</span>
+        <h2>Frequently asked questions</h2>
+        <hr class="rule">
+        <div class="faq">
+          <details>
+            <summary>Is this a monthly subscription?</summary>
+            <p>No. You pay $50 one time and keep your access. There are no recurring charges.</p>
+          </details>
+          <details>
+            <summary>How do I get into the channel after paying?</summary>
+            <p>Once your payment is confirmed, you receive a personal invite link. Open it on a phone or computer with Telegram installed and you're in.</p>
+          </details>
+          <details>
+            <summary>Do I need Telegram?</summary>
+            <p>Yes. Telegram is a free messaging app for iPhone, Android and desktop. Download it and create an account before you join.</p>
+          </details>
+          <details>
+            <summary>Is this a credit repair service?</summary>
+            <p>No. The Inner Circle is an educational community. It shares general information about credit, funding and tradelines. It is not credit repair, legal advice or financial advice.</p>
+          </details>
+          <details>
+            <summary>Will this raise my credit score or get me approved?</summary>
+            <p>No one can promise a specific score or approval. Results depend on your own situation and the actions you take. The channel gives you education to make better-informed decisions.</p>
+          </details>
+          <details>
+            <summary>I have another question. Who do I contact?</summary>
+            <p>Email <a href="mailto:Elevatedid1@gmail.com">Elevatedid1@gmail.com</a> or call <a href="tel:+19049062310">(904) 906-2310</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Join bar that follows visitors once they scroll past the top -->
+  <div class="sticky-cta" aria-hidden="true">
+    <div class="wrap sticky-inner">
+      <span class="sc-text"><strong>$50</strong> one-time &middot; lifetime access</span>
+      <a class="btn btn-sm js-checkout" href="#join" tabindex="-1">
+        Join Now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <footer class="dark">
+    <div class="wrap">
+      <span class="wordmark" aria-label="Elevated Identities">
+        <span class="monogram" aria-hidden="true">EI</span>
+        Elevated Identities
+      </span>
+      <div class="contact">
+        <a href="mailto:Elevatedid1@gmail.com">Elevatedid1@gmail.com</a>
+        <a href="tel:+19049062310">(904) 906-2310</a>
+        <span>South Carolina, USA</span>
+      </div>
+      <p class="disclaimer">Elevated ID Inner Circle provides general educational content about credit, funding and tradelines. It is not credit repair, financial, legal or tax advice. Individual results vary, and no specific credit score, approval or funding outcome is promised or guaranteed. Telegram is a trademark of its owner; this community is not affiliated with or endorsed by Telegram.</p>
+      <p class="disclaimer">&copy; <span id="year">2026</span> Elevated Identities. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Paste the checkout link here once the payment method is connected.
+    // Until then, the buttons show a short "opening soon" message instead.
+    const CHECKOUT_URL = "";
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Sticky join bar: shows after the top section, hides when the membership box is on screen.
+    (function () {
+      var bar = document.querySelector(".sticky-cta");
+      if (!bar || !("IntersectionObserver" in window)) return;
+      var heroOut = false, joinIn = false;
+      function update() {
+        var on = heroOut && !joinIn;
+        bar.classList.toggle("show", on);
+        bar.setAttribute("aria-hidden", on ? "false" : "true");
+        bar.querySelector("a").tabIndex = on ? 0 : -1;
+      }
+      new IntersectionObserver(function (e) { heroOut = !e[0].isIntersecting; update(); }).observe(document.querySelector(".hero"));
+      new IntersectionObserver(function (e) { joinIn = e[0].isIntersecting; update(); }, { threshold: 0.2 }).observe(document.querySelector(".offer"));
+    })();
+
+    // Scroll reveal: items float up as they come into view, siblings slightly staggered.
+    (function () {
+      var groups = [
+        "main section:not(.hero) .kicker", "main section:not(.hero) h2", ".rule",
+        ".card", ".checklist li", ".step", ".offer", ".faq details",
+        "footer .wordmark", "footer .contact", "footer .disclaimer"
+      ];
+      var items = [];
+      groups.forEach(function (sel) {
+        document.querySelectorAll(sel).forEach(function (el) {
+          var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+          var stagger = /card|li|step|details/.test(sel) ? Math.min(i, 5) * 0.09 : 0;
+          el.style.setProperty("--d", stagger + "s");
+          el.classList.add("reveal");
+          items.push(el);
+        });
+      });
+      function show(el) {
+        el.classList.add("in");
+        // Hand the element back to its normal hover transitions once it has settled.
+        setTimeout(function () {
+          el.classList.remove("reveal", "in");
+          el.style.removeProperty("--d");
+        }, 1400);
+      }
+      if (!("IntersectionObserver" in window)) { items.forEach(show); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { show(e.target); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+
+    document.querySelectorAll(".js-checkout").forEach(function (btn) {
+      if (CHECKOUT_URL) {
+        btn.href = CHECKOUT_URL;
+        return;
+      }
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.getElementById("join").scrollIntoView({ behavior: "smooth" });
+        document.querySelector(".checkout-msg").textContent =
+          "Checkout is opening soon. Please check back shortly.";
+      });
+    });
+  </script>
+</body>
+</html>
